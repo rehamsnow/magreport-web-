@@ -20,6 +20,8 @@ class CreateNewsAnnsTable extends Migration
             $table->date('ann_date');
             $table->time('ann_time');
             $table->string('ann_location');
+            $table->binary('ann_img1');
+            $table->binary('ann_img2');
             $table->timestamps();
         });
     }

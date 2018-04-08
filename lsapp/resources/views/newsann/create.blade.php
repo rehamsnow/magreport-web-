@@ -12,7 +12,7 @@
                         </div>
                         <div class="form-group">
                                 {{Form::label('ann_desc', 'Description')}}
-                                {{Form::text('ann_desc', '', ['class' => 'form-control'])}}
+                                {{Form::textarea('ann_desc', '', ['class' => 'form-control'])}}
                         </div>
                         <div class="form-group">
                                 {{Form::label('ann_date', 'Date')}}
@@ -26,6 +26,17 @@
                                 {{Form::label('ann_location', 'Location')}}
                                 {{Form::text('ann_location', '', ['class' => 'form-control'])}}
                         </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="upload-btn-wrapper">
+                                {{Form::file('ann_img1')}}
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="upload-btn-wrapper">
+                                {{Form::file('ann_img2')}}
+                        </div>
+                        <br>
                         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
                 {!! Form::close() !!}
              </div>

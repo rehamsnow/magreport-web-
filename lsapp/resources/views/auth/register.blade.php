@@ -11,19 +11,33 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('user_fname') ? ' has-error' : '' }}">
+                            <label for="user_fname" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="user_fname" type="text" class="form-control" name="user_fname" value="{{ old('user_fname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('user_fname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('user_fname') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('user_lname') ? ' has-error' : '' }}">
+                                <label for="user_lname" class="col-md-4 control-label">Last Name</label>
+    
+                                <div class="col-md-6">
+                                    <input id="user_lname" type="text" class="form-control" name="user_lname" value="{{ old('user_lname') }}" required autofocus>
+    
+                                    @if ($errors->has('user_lname'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('user_lname') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -38,6 +52,23 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('user_type') ? ' has-error' : '' }}">
+                                <label for="user_type" class="col-md-4 control-label">User Type</label>
+    
+                                <div class="col-md-6">
+                                    <input id="radioButton" type="radio" name="user_type" value="Bantay Bayan" required autofocus> Bantay Bayan <br>
+                                    <input id="radioButton" type="radio" name="user_type" value="Barangay Staff" required autofocus> Barangay Staff <br>
+                                    <input id="radioButton" type="radio" name="user_type" value="Barangay Council" required autofocus> Barangay Council <br>
+    
+                                    @if ($errors->has('user_type'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('user_type') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+    
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>

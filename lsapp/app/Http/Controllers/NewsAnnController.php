@@ -54,6 +54,8 @@ class NewsAnnController extends Controller
             'ann_date' => 'required',
             'ann_time' => 'required',
             'ann_location' => 'required',
+            'ann_img1' => 'required',
+            'ann_img2' => 'required',
         ]);
 
         // Create News Announcements
@@ -63,6 +65,8 @@ class NewsAnnController extends Controller
         $news_anns->ann_date = $request->input('ann_date');
         $news_anns->ann_time = $request->input('ann_time');
         $news_anns->ann_location = $request->input('ann_location');
+        $news_anns->ann_img1 = $request->input('ann_img1');
+        $news_anns->ann_img2 = $request->input('ann_img2');
         $news_anns->user_id = auth()->user()->id;
         $news_anns->save();
 
@@ -114,6 +118,8 @@ class NewsAnnController extends Controller
             'ann_date' => 'required',
             'ann_time' => 'required',
             'ann_location' => 'required',
+            'ann_img1' => 'required',
+            'ann_img2' => 'required',
         ]);
 
         // Create News Announcements
@@ -123,6 +129,8 @@ class NewsAnnController extends Controller
         $news_anns->ann_date = $request->input('ann_date');
         $news_anns->ann_time = $request->input('ann_time');
         $news_anns->ann_location = $request->input('ann_location');
+        $news_anns->ann_img1 = $request->input('ann_img1');
+        $news_anns->ann_img2 = $request->input('ann_img2');
         $news_anns->user_id = auth()->user()->id;
         $news_anns->save();
 

@@ -15,11 +15,13 @@ class CreateIncReportsTable extends Migration
     {
         Schema::create('inc_reports', function (Blueprint $table) {
             $table->increments('rep_id');
+            $table->string('inc_desc');
             $table->string('rep_desc');
             $table->time('rep_time');
             $table->date('rep_date');
             $table->string('rep_address');
             $table->string('rep_status');
+            $table->binary('rep_img');
             $table->timestamps();
         });
     }

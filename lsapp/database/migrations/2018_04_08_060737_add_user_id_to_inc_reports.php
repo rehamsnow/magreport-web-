@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateManagersTable extends Migration
+class AddUserIdToIncReports extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateManagersTable extends Migration
      */
     public function up()
     {
-        Schema::create('managers', function (Blueprint $table) {
-            $table->increments('man_id');
-            $table->string('man_type');
+        Schema::table('inc_reports', function($table){
+            $table->integer('user_id');
         });
     }
 
@@ -26,6 +25,8 @@ class CreateManagersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('managers');
+        Schema::table('inc_reports', function($table){
+            $table->dropColumn('user_id');
+        });
     }
 }
