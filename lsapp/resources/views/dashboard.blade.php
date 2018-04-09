@@ -1,17 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('header')
+  <h2 class="title">Dashboard</h2>
+@endsection
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-11 col-md-offset-0">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h1>Dashboard</h1>
-                </div>
 
                 <div class="panel-body">
-                    <a href="/newsann/create" class="btn btn-primary">Create Post</a>   
-                    <h2>News and Announcements</h2>
+                    <a href="/newsann/create" class="btn btn-warning" style="float: right">Create Post</a>
                     @if(count($news_anns) > 0)
                         <table class="table table-striped">
                             <tr>

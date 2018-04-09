@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('header')
+  <h2 class="title">Reports</h2>
+@endsection
 
 @section('content')
-    <h1>Reports</h1>
     @if(count($inc_reports) > 0)
         @foreach($inc_reports as $inc_reports)
             <div class="well well-sm">

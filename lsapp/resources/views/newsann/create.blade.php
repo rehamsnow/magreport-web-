@@ -1,10 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('header')
+  <h2 class="title">Create News & Announcements</h2>
+@endsection
 
 @section('content')
-<div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1 align="center">Create News and Announcements</h1>
+                <div class="panel panel-default">
+                        <div class="panel-heading">
                 {!! Form::open(['action' => 'NewsAnnController@store', 'method' => 'NEWSANN']) !!}
                         <div class="form-group">
                                 {{Form::label('ann_title', 'Title')}}
@@ -37,8 +41,10 @@
                                 {{Form::file('ann_img2')}}
                         </div>
                         <br>
-                        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                        {{Form::submit('Submit', ['class'=>'btn btn-warning'])}}
                 {!! Form::close() !!}
+                </div>
+                </div>
              </div>
         </div>
 </div>

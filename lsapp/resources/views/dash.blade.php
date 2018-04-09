@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('header')
+  <h2 class="title">Dashboard</h2>
+@endsection
 
 @section('content')
   <head>
@@ -19,17 +23,14 @@
 
   <body style="background-color:white">
     <div class="row">
-      <div class="mb-auto col-lg-6">
-        <h1 style="color:black">Dashboard</h1>
-      </div>
       <br>
-      <div class="btn-toolbar mb-2 mb-md-0 col-lg-6">
-        <button class="btn btn-sm btn-primary btn-outline-secondary" style="float: right">
+      <div class="btn-toolbar mb-2 mb-md-0 col-lg-12">
+        <button class="btn btn-sm btn-warning btn-outline-secondary" style="float: right">
           <span data-feather="inbox">
           </span>
           Export
         </button>
-        <button class="btn btn-sm btn-primary btn-outline-secondary dropdown-toggle" style="float: right">
+        <button class="btn btn-sm btn-warning btn-outline-secondary dropdown-toggle" style="float: right">
           <span data-feather="calendar"></span>
           This month
         </button>

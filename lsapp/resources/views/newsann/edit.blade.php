@@ -1,10 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('header')
+  <h2 class="title">Edit News & Announcements</h2>
+@endsection
 
 @section('content')
 <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1 align="center">Edit News and Announcements</h1>
                 {!! Form::open(['action' => ['NewsAnnController@update', $news_anns->ann_id], 'method' => 'NEWSANN']) !!}
                         <div class="form-group">
                                 {{Form::label('ann_title', 'Title')}}
