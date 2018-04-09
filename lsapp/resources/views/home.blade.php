@@ -1,9 +1,7 @@
 @extends('layouts.template')
 @section('title') @endsection
-@section('header') 
-MAG-REPORT
-@endsection
-@section('subheader') @endsection
+@section('header') MAG-REPORT @endsection
+@section('subheader')  @endsection
 
 @section('style')
 

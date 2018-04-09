@@ -46,7 +46,7 @@
 
 <body style="background-image: url('{{ asset('img/background.jpg') }}'); background-repeat: round; background-attachment: fixed;">
     <div class="wrapper">
-        <div class="sidebar" data-color="blue"  data-image="{{ asset('img/sidebar-bg.png') }}">
+        <div class="sidebar" data-color="blue" data-image="{{ asset('img/sidebar-bg.png') }}">
 
             <div class="logo">
                 <!--<a href="lsapp/public/home" class="simple-text">
@@ -70,7 +70,7 @@
                         @if (Auth::user()->user_type == 'Bantay Bayan')
                             <li>
                                 <a>
-                                    <p>You are logged in as <br />{{ Auth::user()->user_type }}</p>
+                                    <p>{{ Auth::user()->user_fname }}, you are logged in as {{ Auth::user()->user_type }}</p>
                                 </a>
                             </li>
 
@@ -92,7 +92,7 @@
                                     </a>
             
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
+                                        {{ csrf_field() }}
                                     </form>
                             </li>
                         @endif
@@ -116,7 +116,7 @@
                                 </a>
         
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
+                                    {{ csrf_field() }}
                                 </form>
                             </li>
                             <li>
@@ -150,7 +150,7 @@
                                 </a>
             
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                     @csrf
+                                    {{ csrf_field() }}
                                 </form>
                             </li>
                         <li>
