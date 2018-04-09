@@ -43,65 +43,15 @@
      <div class="panel-body">
         <h2>Incident Reports</h2>
           <table class="table table-striped">
-             <tr>
-                <th>Category</th>
-                <th>Remarks</th>
-                <th>Location</th>
-                <th>Date Reported</th>
-                <th>Time Reported</th>
-                <th>Status</th>
-             </tr>
-             <tr>
-                <tr>
-                  <td>sample data</td>
-                  <td>sample data</td>
-                  <td>sample data</td>
-                  <td>sample data</td>
-                  <td>sample data</td>
-                  <th>done</td>
-                </tr>
-              </tr>
               <tr>
-                  <tr>
-                    <td>sample data</td>
-                    <td>sample data</td>
-                    <td>sample data</td>
-                    <td>sample data</td>
-                    <td>sample data</td>
-                    <th>done</td>
-                  </tr>
-                </tr>
-                <tr>
-                    <tr>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <th>done</td>
-                    </tr>
-                </tr>
-                <tr>
-                    <tr>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <th>done</td>
-                    </tr>
-                </tr>
-                <tr>
-                    <tr>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <td>sample data</td>
-                      <th>done</td>
-                    </tr>
-                </tr>
-            </table>
+                  <th>CATEGORY</th>
+                  <th>REMARKS</th>
+                  <th>REPORT DATE</th>
+                  <th>REPORT TIME</th>
+                  <th>LOCATION</th>
+                  <th>STATUS</th>
+              </tr>
+          </table>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -118,36 +68,30 @@
       feather.replace()
     </script>
 
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <!-- Charts -->
+    <script src="{{ asset('material-dashboard/js/chartist.min.js') }}"></script>
     <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ["Peace & Order", "Recreation", "Health", "Others"],
-          datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
+     <Grid item xs={12} sm={12} md={6}>
+      <ChartCard
+        chart={
+            <ChartistGraph
+                className="ct-chart"
+                data={emailsSubscriptionChart.data}
+                type="Bar"
+                options={emailsSubscriptionChart.options}
+                responsiveOptions={emailsSubscriptionChart.responsiveOptions}
+                listener={
+                    emailsSubscriptionChart.animation
+                }
+            />
         }
-      });
+        chartColor="orange"
+        title="Email Subscriptions"
+        text="Last Campaign Performance"
+        statIcon={AccessTime}
+        statText="campaign sent 2 days ago"
+    />
+    </Grid>
     </script>
   </body>
 @endsection

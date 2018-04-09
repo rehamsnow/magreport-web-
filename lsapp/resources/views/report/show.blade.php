@@ -1,13 +1,16 @@
 @extends('layouts.template')
 
+@section('header')
+<h2 class="title">{{$inc_reports->inc_desc}}</h2>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-9 col-md-offset-1">
             <div class="panel panel-default">
-                <h1 class="text-center">"Category"</h1>
                     <div>
-                        <h4 class="text-info">Remarks: <h3>{{!!$inc_reports->rep_desc!!}}</h3></h4>
+                        <h4 class="text-info">Remarks:<h3>{{!!$inc_reports->rep_desc!!}}</h3></h4>
                     </div>
                     <div>
                         <h4 class="text-info">Report Date: <h3>{!!$inc_reports->rep_date!!}</h3></h4>

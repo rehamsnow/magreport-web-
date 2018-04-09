@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('header')
-  <h2 class="title">Reports</h2>
+  <h2 class="title">Incident Reports</h2>
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
         @foreach($inc_reports as $inc_reports)
             <div class="well well-sm">
                 <h4><a href="/report/{{$inc_reports->rep_id}}">{{$inc_reports->rep_desc}}</a></h4>
-            <small>Reported on {{$inc_reports->created_at}}</small>
+            <small>Reported on {{$inc_reports->rep_time}}, {{$inc_reports->rep_date}}</small>
             </div>
         @endforeach
     @else
