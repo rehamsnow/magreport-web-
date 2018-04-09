@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use App\Report;
 
 class DashController extends Controller
 {
@@ -23,6 +24,7 @@ class DashController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('dash')->with('inc_reports');
+        $inc_reports = Report::paginate(10);
+        return view('dash')->with('inc_reports',$inc_reports);
     }
 }

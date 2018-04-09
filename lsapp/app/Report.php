@@ -12,8 +12,4 @@ class Report extends Model
         public $primaryKey = 'rep_id';
         // Timestamps
         public $timestamps = true;
-    
-        public function inc_categories(){
-            return $this->belongsTo('App\IncCategory');
-}
 }

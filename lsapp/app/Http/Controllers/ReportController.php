@@ -46,7 +46,28 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'inc_desc' => 'required',
+            'rep_desc' => 'required',
+            'rep_date' => 'required',
+            'rep_time' => 'required',
+            'rep_address' => 'required',
+            'rep_img' => 'required',
+            'rep_status' => 'required',
+        ]);
+
+        // Incident Reports
+        $inc_reports = new Report;
+        $inc_reports->inc_desc = $request->input('inc_desc');
+        $inc_reports->rep_desc = $request->input('rep_desc');
+        $inc_reports->rep_date = $request->input('rep_date');
+        $inc_reports->rep_time = $request->input('rep_time');
+        $inc_reports->rep_address = $request->input('rep_location');
+        $inc_reports->rep_img = $request->input('rep_img');
+        $inc_reports->rep_status = $request->input('rep_status');
+        $inc_reports->save();
+
+        return redirect('/dash')->with('success', 'Report found');
     }
 
     /**
@@ -57,8 +78,8 @@ class ReportController extends Controller
      */
     public function show($rep_id)
     {
-        $inc_reports = Report::find($rep_id);
-        return view('report.show')->with('inc_reports', $inc_reports);
+        $inc_reports = Report::all();
+        return view('dash')->with('index_reports',$inc_reports);
     }
 
     /**
