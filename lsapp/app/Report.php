@@ -12,4 +12,8 @@ class Report extends Model
         public $primaryKey = 'rep_id';
         // Timestamps
         public $timestamps = true;
+
+        public function user(){
+                return $this->belongsTo('App\User');
+}
 }

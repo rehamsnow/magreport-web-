@@ -1,11 +1,13 @@
 @extends('layouts.template')
 
+@section('subheader')
+<h2 class="float-sm-right">Register</h2>
+@endsection
+
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -94,7 +96,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-warning">
                                     Register
                                 </button>
                             </div>
@@ -103,6 +105,5 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 @endsection

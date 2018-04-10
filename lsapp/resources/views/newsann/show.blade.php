@@ -29,7 +29,7 @@
                                         {!!$news_anns->ann_img2!!}
                                 </div>
                                 <hr>
-                                <small>Posted on {{$news_anns->created_at}} by {{$news_anns->user->name}}</small>
+                                <small>Posted on {{$news_anns->created_at}} by {{$news_anns->user->user_fname}} {{$news_anns->user->user_lname}}</small>
                                 <hr>
                                 <a href="/newsann/{{$news_anns->ann_id}}/edit" class="btn btn-default">Edit</a>
                                 <a href="/newsann" class="btn btn-default">Go Back</a>

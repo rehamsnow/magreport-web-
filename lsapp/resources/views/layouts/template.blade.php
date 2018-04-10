@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--ChartJs - PieChart -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -19,8 +23,6 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
-    <!-- Icon for star rating -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS     -->
     <link rel="stylesheet" href="{{ asset('material-dashboard/css/bootstrap.min.css') }}" />
@@ -31,12 +33,6 @@
     <link rel='stylesheet' href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' type='text/css'>
 
-    <!-- Style for star rating -->
-    <style>
-        .checked {
-            color: #5bc0de;
-        }
-    </style>
 
     @yield('script')
 
@@ -45,13 +41,11 @@
 </head>
 
 <body style="background-image: url('{{ asset('img/background.jpg') }}'); background-repeat: round; background-attachment: fixed;">
+    
     <div class="wrapper">
         <div class="sidebar" data-color="blue" data-image="{{ asset('img/sidebar-bg.png') }}">
 
             <div class="logo">
-                <!--<a href="lsapp/public/home" class="simple-text">
-                    TaraNaSaPinas
-                </a> -->
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
@@ -74,7 +68,7 @@
                                 </a>
                             </li>
 
-                            <li class="active">
+                            <li>
                                 <a href="/dash">
                                     <p>Dashboard</p>
                                 </a>
@@ -99,7 +93,7 @@
                         @if (Auth::user()->user_type == 'Barangay Staff')
                             <li>
                                 <a>
-                                    <p>You are logged in as <br />{{ Auth::user()->user_type }}</p>
+                                    <p>{{ Auth::user()->user_fname }}, you are logged in as {{ Auth::user()->user_type }}</p>
                                 </a>
                             </li>
 
@@ -133,7 +127,7 @@
                         @if (Auth::user()->user_type == 'Barangay Council')
                         <li>
                             <a>
-                                <p>You are logged in as <br />{{ Auth::user()->user_type }}</p>
+                                <p>{{ Auth::user()->user_fname }}, you are logged in as {{ Auth::user()->user_type }}</p>
                             </a>
                         </li>
 
@@ -142,17 +136,6 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                    <p>Sign Out</p>
-                                </a>
-            
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
                         <li>
                             <a href="/newsann">
                                 <p>News & Announcements</p>
@@ -163,11 +146,23 @@
                                 <p>Create News & Announcements</p>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                <p>Sign Out</p>
+                            </a>
+        
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                    </li>
                         @endif
                     @endguest
                 </ul>
             </div>
         </div>
+        
         <div class="main-panel">
             <div class="content">
                 @include('inc.messages')
@@ -189,7 +184,6 @@
             </div>
         </div>
     </div>
-</body>
 
 <!--   Core JS Files   -->
 <script type="text/javascript" src="{{ asset('material-dashboard/js/jquery-3.2.1.min.js') }}"></script>

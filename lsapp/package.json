@@ -20,6 +20,11 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "npm": "^5.8.0"
+        "chart.js": "^2.7.2",
+        "fusioncharts": "^3.12.2",
+        "npm": "^5.8.0",
+        "react": "^16.3.1",
+        "react-dom": "^16.3.1",
+        "react-fusioncharts": "^1.0.5"
     }
 }

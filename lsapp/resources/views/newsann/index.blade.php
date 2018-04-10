@@ -9,7 +9,7 @@
         @foreach($news_anns as $news_anns)
             <div class="well well-sm">
                 <h3><a href="/newsann/{{$news_anns->ann_id}}">{{$news_anns->ann_desc}}</a></h3>
-            <small>Posted on {{$news_anns->created_at}} by {{$news_anns->user->user_fname}}</small>
+            <small>Posted on {{$news_anns->created_at}} by {{$news_anns->user->user_fname}} {{$news_anns->user->user_lname}}</small>
             </div>
         @endforeach
     @else

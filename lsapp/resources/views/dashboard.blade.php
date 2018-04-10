@@ -1,7 +1,9 @@
 @extends('layouts.template')
 
 @section('header')
-  <h2 class="title">Dashboard</h2>
+  <h2 class="title">Dashboard
+    <a href="/newsann/create" class="btn btn-warning" style="float: right">Create Post</a>
+  </h2>
 @endsection
 
 @section('content')
@@ -11,7 +13,6 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                    <a href="/newsann/create" class="btn btn-warning" style="float: right">Create Post</a>
                     @if(count($news_anns) > 0)
                         <table class="table table-striped">
                             <tr>
@@ -25,13 +26,15 @@
                                     <td>{{$news_anns->ann_title}}</td>
                                     <td>{{$news_anns->ann_location}}</td>
                                     <td>{{$news_anns->created_at}}</td>
-                                    <td class="nav-item dropdown btn btn-link">
+                                    <td class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="/newsann" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li>
-                                                <a href="/newsann/{{$news_anns->ann_id}}" class="btn btn-light">Show</a>
+                                                <a href="/newsann/{{$news_anns->ann_id}}" class="btn btn-info">Show</a>
+                                            </li>
                                             <li>
-                                                <a href="/newsann/{{$news_anns->ann_id}}/edit" class="btn btn-light">Edit</a>
+                                                <a href="/newsann/{{$news_anns->ann_id}}/edit" class="btn btn-info">Edit</a>
+                                            </li>
                                             <li>
                                                 {!!Form::open(['action' => ['NewsAnnController@destroy', $news_anns->ann_id], 'method' => "NEWSANN"])!!}
                                                 {{Form::hidden('_method', 'DELETE')}}
@@ -50,5 +53,7 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection
