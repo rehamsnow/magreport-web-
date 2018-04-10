@@ -40,10 +40,10 @@
     <title>{{ config('app.name', 'Laravel') }}@yield('title')</title>
 </head>
 
-<body style="background-image: url('{{ asset('img/background.jpg') }}'); background-repeat: round; background-attachment: fixed;">
+<body style="background-image: url('{{ asset('img/bg2.png') }}'); background-repeat: round; background-attachment: fixed;">
     
     <div class="wrapper">
-        <div class="sidebar" data-color="blue" data-image="{{ asset('img/sidebar-bg.png') }}">
+        <div class="sidebar" style="background-color:transparent" data-color="blue">
 
             <div class="logo">
             </div>
@@ -62,9 +62,10 @@
                         </li>
                     @else
                         @if (Auth::user()->user_type == 'Bantay Bayan')
-                            <li>
+                            <li class="active">
                                 <a>
-                                    <p>{{ Auth::user()->user_fname }}, you are logged in as {{ Auth::user()->user_type }}</p>
+                                    <h3 style="font-weight: bold">{{ Auth::user()->user_fname }},</h3>
+                                        <small>you are logged in as {{ Auth::user()->user_type }}</small>
                                 </a>
                             </li>
 
@@ -74,10 +75,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/report">
-                                    <p>REPORTS</p>
-                                </a>
-                            </li>
                             <li>
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -91,15 +88,21 @@
                             </li>
                         @endif
                         @if (Auth::user()->user_type == 'Barangay Staff')
-                            <li>
+                            <li class="active">
                                 <a>
-                                    <p>{{ Auth::user()->user_fname }}, you are logged in as {{ Auth::user()->user_type }}</p>
+                                    <h3 style="font-weight: bold">{{ Auth::user()->user_fname }},</h3>
+                                    <small>you are logged in as {{ Auth::user()->user_type }}</small>
                                 </a>
                             </li>
 
-                            <li class="active">
+                            <li>
                                 <a href="/dashboard">
                                     <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/newsann">
+                                    <p>News & Announcements</p>
                                 </a>
                             </li>
                             <li>
@@ -113,25 +116,15 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
-                            <li>
-                                <a href="/newsann">
-                                    <p>News & Announcements</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/newsann/create">
-                                    <p>Create News & Announcements</p>
-                                </a>
-                            </li>
                         @endif
                         @if (Auth::user()->user_type == 'Barangay Council')
-                        <li>
+                        <li class="active">
                             <a>
-                                <p>{{ Auth::user()->user_fname }}, you are logged in as {{ Auth::user()->user_type }}</p>
-                            </a>
+                                <h3 style="font-weight: bold">{{ Auth::user()->user_fname }},</h3>
+                                <small>you are logged in as {{ Auth::user()->user_type }}</small>
                         </li>
 
-                        <li class="active">
+                        <li>
                             <a href="/dashboard">
                                 <p>Dashboard</p>
                             </a>
@@ -139,11 +132,6 @@
                         <li>
                             <a href="/newsann">
                                 <p>News & Announcements</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/newsann/create">
-                                <p>Create News & Announcements</p>
                             </a>
                         </li>
                         <li>
@@ -170,7 +158,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header" data-background-color="blue">
+                                <div class="card-header" style="background-color:darkblue">
                                     <h2 class="title">@yield('header')</h2>
                                     <p class="category">@yield('subheader')</p>
                                 </div>

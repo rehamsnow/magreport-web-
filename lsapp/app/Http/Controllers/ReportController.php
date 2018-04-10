@@ -52,9 +52,27 @@ class ReportController extends Controller
             'rep_date' => 'required',
             'rep_time' => 'required',
             'rep_address' => 'required',
-            'rep_img' => 'required',
+            'rep_img' => 'image|nullable|max:1999',
             'rep_status' => 'required',
         ]);
+
+        if($request->hasFile('rep_img'))
+        {
+            //Get filename with extension
+            $filenameWithExt1 = $request->file('rep_img')->getClientOriginalName();
+            //Get filename
+            $filename1 = pathinfo($filenameWithExt1, PATHINFO_FILENAME);
+            //Get extension
+            $extension1 = $request->file('rep_img')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore1 = $filename1.'_'.time().'.'.$extension1;
+            //Upload Image
+            $path = $request->file('rep_img')->storeAs('public/report_images', $fileNameToStore1);
+        } 
+        else
+        {
+            $fileNameToStore1 = 'no_image.png';
+        }
 
         // Incident Reports
         $inc_reports = new Report;
@@ -63,8 +81,8 @@ class ReportController extends Controller
         $inc_reports->rep_date = $request->input('rep_date');
         $inc_reports->rep_time = $request->input('rep_time');
         $inc_reports->rep_address = $request->input('rep_location');
-        $inc_reports->rep_img = $request->input('rep_img');
         $inc_reports->rep_status = $request->input('rep_status');
+        $inc_reports->rep_img = $fileNameToStore1;
         $inc_reports->save();
 
         return redirect('/dash')->with('success', 'Report found');

@@ -2,14 +2,14 @@
 
 @section('header')
   <h2 class="title">Dashboard
-    <a href="/newsann/create" class="btn btn-warning" style="float: right">Create Post</a>
+    <a href="/newsann/create" class="btn btn-info" style="float: right">Create Post</a>
   </h2>
 @endsection
 
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-11 col-md-offset-0">
+        <div class="col-md-9 col-md-offset-0">
             <div class="panel panel-default">
 
                 <div class="panel-body">
@@ -27,7 +27,7 @@
                                     <td>{{$news_anns->ann_location}}</td>
                                     <td>{{$news_anns->created_at}}</td>
                                     <td class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="/newsann" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></a>
+                                            <a class="nav-link dropdown-toggle" href="/newsann" id="navbarDropdown" role="button" data-toggle="dropdown">Action <span class="caret"></span></a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li>
                                                 <a href="/newsann/{{$news_anns->ann_id}}" class="btn btn-info">Show</a>
@@ -35,7 +35,7 @@
                                             <li>
                                                 <a href="/newsann/{{$news_anns->ann_id}}/edit" class="btn btn-info">Edit</a>
                                             </li>
-                                            <li>
+                                            <li style="float:unset">
                                                 {!!Form::open(['action' => ['NewsAnnController@destroy', $news_anns->ann_id], 'method' => "NEWSANN"])!!}
                                                 {{Form::hidden('_method', 'DELETE')}}
                                                 {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
@@ -53,7 +53,5 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 @endsection

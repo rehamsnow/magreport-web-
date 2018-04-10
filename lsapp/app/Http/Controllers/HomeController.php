@@ -24,6 +24,6 @@ class HomeController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('home')->with('bantay bayan', $user->user_type);
+        return view('dash')->with('bantay bayan', $user->user_type);
     }
 }

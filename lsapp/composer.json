@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "almasaeed2010/adminlte": "~2.4",
+        "consoletvs/charts": "^6.1",
         "jeremykenedy/laravel-https": "^1.1",
         "jeremykenedy/laravel-logger": "^1.0",
         "jeremykenedy/laravel-phpinfo": "^1.0",

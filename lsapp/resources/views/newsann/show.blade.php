@@ -22,11 +22,11 @@
                                         {!!$news_anns->ann_desc!!}</h4>
                                 </div>
                                 <hr>
-                                <div><h4>PHOTOS: </h4> 
-                                        {!!$news_anns->ann_img1!!}
+                                <div><h4>PHOTOS: </h4>
+                                        <img style="width:100%" src="http://localhost/lsapp/public/storage/anns_images/{{$news_anns->ann_img1}}">
                                 </div>
                                 <div>
-                                        {!!$news_anns->ann_img2!!}
+                                        <img style="width:100%" src="http://localhost/lsapp/public/storage/anns_images/{{$news_anns->ann_img2}}">
                                 </div>
                                 <hr>
                                 <small>Posted on {{$news_anns->created_at}} by {{$news_anns->user->user_fname}} {{$news_anns->user->user_lname}}</small>
