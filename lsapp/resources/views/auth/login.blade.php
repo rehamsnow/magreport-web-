@@ -40,7 +40,7 @@
 		</div>
     </nav>
     <div class="wrapper">
-        <div class="page-header" style="background-image: url('{{ asset('img/bg2.png') }}'); background-attachment: fixed;">
+        <div class="page-header" style="background-color:white">
             <div class="filter"></div>
 
                 <div class="container">

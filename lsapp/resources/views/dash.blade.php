@@ -61,7 +61,8 @@
                         @endif
                       <td>{{$inc_reports->user->user_fname}} {{$inc_reports->user->user_lname}}</td>
                       <td>
-                          Resolved{{$inc_reports->rep_status}}
+                            <input id="radioButton" type="radio" name="rep_status" value="Pending" checked="checked" required autofocus> Pending <br>
+                            <input id="radioButton" type="radio" name="rep_status" value="Resolved" required autofocus> Resolved <br>
                       </td>
                   </tr>
               @endforeach        
