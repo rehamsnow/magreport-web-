@@ -2,7 +2,7 @@
 
 @section('header')
   <h2 class="title">Dashboard
-        <a href="" class="btn btn-info" style="float: right">Export</a></h2>
+        <!--<a href="" class="btn btn-info" style="float: right">Export</a></h2>-->
 @endsection
 
 @section('content')
@@ -10,20 +10,20 @@
 
     <div>
             <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                      <span class="sr-only">0% Complete (success)</span>
                       Recreation
                     </div>
                   </div>
                   <div class="progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                       <span class="sr-only">20% Complete</span>
                       Others
                     </div>
                   </div>
                   <div class="progress">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                      <span class="sr-only">20% Complete (warning)</span>
                         Health
                     </div>
                   </div>

@@ -40,10 +40,11 @@
     <title>{{ config('app.name', 'Laravel') }}@yield('title')</title>
 </head>
 
-<body style="background-image: url('{{ asset('img/bg2.png') }}'); background-repeat: round; background-attachment: fixed;">
+<body style="background-color:rosybrown">
+<!--<body style="background-image: url('{{ asset('img/bg2.png') }}'); background-repeat: round; background-attachment: fixed;"> -->
     
     <div class="wrapper">
-        <div class="sidebar" style="background-color:transparent" data-color="blue">
+        <div class="sidebar" style="background-color:white" data-color="blue">
 
             <div class="logo">
             </div>
