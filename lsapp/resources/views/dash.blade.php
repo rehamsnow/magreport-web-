@@ -62,8 +62,8 @@
                       <!--<td>{{$inc_reports->user->user_fname}} {{$inc_reports->user->user_lname}}</td> -->
                       <td>Reham Snow Camama </td>
                       <td>
-                            <input id="radioButton" type="radio" name="rep_status" value="Pending" checked="checked" required autofocus> Pending <br>
-                            <input id="radioButton" type="radio" name="rep_status" value="Resolved" required autofocus> Resolved <br>
+                            <input id="pending" type="checkbox" name="rep_status" value="Pending" checked="checked" required autofocus><label for="Pending"> Pending</label> <br>
+                            <input id="resolved" type="checkbox" name="rep_status" value="Resolved" required autofocus><label for="Resolved"> Resolved</label> <br>
                       </td>
                   </tr>
               @endforeach        
