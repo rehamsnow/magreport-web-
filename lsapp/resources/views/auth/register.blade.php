@@ -49,7 +49,7 @@
                         <div class="col-lg-4 ml-auto mr-auto ">
                             <div class="card card-register" style="background-color: #051939; width:100rem">
 
-                                <img src="{{ asset('img/logo.png') }}" height="300" width="100"/>
+                                <img src="{{ asset('img/welclogo.png') }}" height="200" width="300"/>
                                 
                                 <h3 class="title" style="color: white;">Sign Up</h3>
 
