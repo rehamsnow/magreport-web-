@@ -59,7 +59,8 @@
                         @if ($inc_reports->rep_img != "no_image.png")
                           <img style="width:100%" src="public/report_images/{{$inc_reports->rep_img}}"></td>
                         @endif
-                      <td>{{$inc_reports->user->user_fname}} {{$inc_reports->user->user_lname}}</td>
+                      <!--<td>{{$inc_reports->user->user_fname}} {{$inc_reports->user->user_lname}}</td> -->
+                      <td>Reham Snow Camama </td>
                       <td>
                             <input id="radioButton" type="radio" name="rep_status" value="Pending" checked="checked" required autofocus> Pending <br>
                             <input id="radioButton" type="radio" name="rep_status" value="Resolved" required autofocus> Resolved <br>
