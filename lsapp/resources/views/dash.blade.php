@@ -8,6 +8,33 @@
 @section('content')
   <head>
 
+    <div>
+            <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                      <span class="sr-only">40% Complete (success)</span>
+                      Recreation
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                      <span class="sr-only">20% Complete</span>
+                      Others
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                      <span class="sr-only">60% Complete (warning)</span>
+                        Health
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                      <span class="sr-only">80% Complete (danger)</span>
+                      Peace & Order
+                    </div>
+                  </div>
+    </div>
+
      <div class="panel-body">
         @if(sizeOf($inc_reports) > 0)
           <table class="table table-striped">
@@ -32,8 +59,10 @@
                         @if ($inc_reports->rep_img != "no_image.png")
                           <img style="width:100%" src="public/report_images/{{$inc_reports->rep_img}}"></td>
                         @endif
-                      <td>{{$inc_reports->user_fname}} {{$inc_reports->user_lname}}</td>
-                      <td>{{$inc_reports->rep_status}}</td>
+                      <td>{{$inc_reports->user->user_fname}} {{$inc_reports->user->user_lname}}</td>
+                      <td>
+                          Resolved{{$inc_reports->rep_status}}
+                      </td>
                   </tr>
               @endforeach        
           </table>
