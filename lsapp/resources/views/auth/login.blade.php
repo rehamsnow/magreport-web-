@@ -40,7 +40,7 @@
 		</div>
     </nav>
     <div class="wrapper">
-        <div class="page-header" style="background-color:white">
+        <div class="page-header" style="background-color:black">
             <div class="filter"></div>
 
                 <div class="container">

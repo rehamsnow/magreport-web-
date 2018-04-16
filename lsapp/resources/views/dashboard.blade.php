@@ -14,19 +14,27 @@
 
                 <div class="panel-body">
                     @if(count($news_anns) > 0)
-                        <table class="table table-striped">
-                            <tr>
+                        <table class="table table-striped table-hover">
+                            <tr class="bg-info">
                                 <th>TITLE</th>
-                                <th>LOCATION</th>
                                 <th>CREATED AT</th>
                                 <th>MANAGE</th>
                             </tr>
                              @foreach($news_anns as $news_anns)
                                 <tr>
+                                    <!--<td>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" id="checkbox">
+                                            <label for="checkbox1"></label>
+                                        </fieldset>
+                                    </td>-->
                                     <td>{{$news_anns->ann_title}}</td>
-                                    <td>{{$news_anns->ann_location}}</td>
                                     <td>{{$news_anns->created_at}}</td>
-                                    <td class="nav-item dropdown">
+                                    <td>
+                                        <a class="black-text" href="/newsann/{{$news_anns->ann_id}}"><i class="fa fa-eye">  Show</i></a></br>
+                                        <a class="black-text" href="/newsann/{{$news_anns->ann_id}}/edit"><i class="fa fa-edit">  Edit</i></a></br>
+                                    </td>
+                                    <!--<td class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="/newsann" id="navbarDropdown" role="button" data-toggle="dropdown">Action <span class="caret"></span></a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li>
@@ -42,7 +50,7 @@
                                                 {!!Form::close()!!}
                                             </li>
                                             </ul>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             @endforeach
                         </table>

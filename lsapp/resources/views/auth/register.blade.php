@@ -40,7 +40,7 @@
 		</div>
     </nav>
     <div class="wrapper">
-        <div class="page-header" style="background-color:white">
+        <div class="page-header" style="background-color: black">
             <div class="filter"></div>
 
             <div class="container">
@@ -100,7 +100,7 @@
                                      </div>
 
                                      <div class="form-group{{ $errors->has('user_type') ? ' has-error' : '' }}">
-                                            <label for="user_type" class="col-md-8 control-label">User Type</label>
+                                            <label for="user_type" class="col-md-8 control-label">What are you? </label>
                 
                                             <div class="col-md-12">
                                                 <input id="radioButton" type="radio" name="user_type" value="Bantay Bayan" required autofocus> Bantay Bayan <br>
@@ -138,7 +138,6 @@
                                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                             </div>
                                     </div>
-                                    &nbsp;
                                     <div>
                                         <div>
                                             <button type="submit" class="btn btn-block btn-info">
@@ -146,6 +145,7 @@
                                             </button>
                                         </div>
                                     </div>
+                                    &nbsp;
                                 </form>
                             </div>      
                         </div>

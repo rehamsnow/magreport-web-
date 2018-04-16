@@ -5,10 +5,11 @@
 @endsection
 
 @section('content')
-<div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                {!! Form::open(['action' => ['NewsAnnController@update', $news_anns->ann_id], 'method' => 'NEWSANN']) !!}
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                {!! Form::open(['action' => ['NewsAnnController@update', $news_anns->ann_id], 'method' => 'NEWSANN', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group">
                                 {{Form::label('ann_title', 'Title')}}
                                 {{Form::text('ann_title', $news_anns->ann_title, ['class' => 'form-control'])}}
@@ -40,11 +41,11 @@
                                 {{Form::file('ann_img2')}}
                         </div>
                         <br>
-                        {{Form::hidden('_method', 'PUT')}}
-                        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}        
-
-                {!! Form::close() !!}
+                        {{Form::hidden('_method','PUT')}}
+                        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                        {!! Form::close() !!}
            </div>
         </div>
+</div>
 </div>
 @endsection

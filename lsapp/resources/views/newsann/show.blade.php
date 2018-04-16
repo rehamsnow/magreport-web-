@@ -1,32 +1,29 @@
 @extends('layouts.template')
 
+@section('header')
+  <h2 class="title">{{$news_anns->ann_title}}</h2>
+@endsection
+
 @section('content')
 
         <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1>{{$news_anns->ann_title}}</h1>
+                                <img style="width:50%" src="/storage/ann_images/{{$news_anns->ann_img1}}">
                                 <br>
-                                <div><h4>LOCATION:     
+                                <div><h4><b>LOCATION: </b>   
                                         {!!$news_anns->ann_location!!}</h4>
                                 </div>
-                                <div><h4>Date: 
+                                <div><h4><b>Date: </b>
                                         {!!$news_anns->ann_date!!}</h4>
                                 </div>
-                                <div><h4>TIME:
+                                <div><h4><b>TIME: </b>
                                         {!!$news_anns->ann_time!!}</h4>
                                 </div>
                                 <hr>
-                                <div><h4>DESCRIPTION: 
+                                <div><h4><b>DESCRIPTION: </b>
                                         {!!$news_anns->ann_desc!!}</h4>
-                                </div>
-                                <hr>
-                                <div><h4>PHOTOS: </h4>
-                                        <img style="width:100%" src="http://localhost/lsapp/public/storage/anns_images/{{$news_anns->ann_img1}}">
-                                </div>
-                                <div>
-                                        <img style="width:100%" src="http://localhost/lsapp/public/storage/anns_images/{{$news_anns->ann_img2}}">
                                 </div>
                                 <hr>
                                 <small>Posted on {{$news_anns->created_at}} by {{$news_anns->user->user_fname}} {{$news_anns->user->user_lname}}</small>

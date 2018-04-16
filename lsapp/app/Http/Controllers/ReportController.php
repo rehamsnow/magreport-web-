@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Report;
+use Illuminate\Support\Facades\Storage;
 
 class ReportController extends Controller
 {
@@ -56,22 +57,19 @@ class ReportController extends Controller
             'rep_status' => 'required',
         ]);
 
-        if($request->hasFile('rep_img'))
-        {
-            //Get filename with extension
-            $filenameWithExt1 = $request->file('rep_img')->getClientOriginalName();
-            //Get filename
-            $filename1 = pathinfo($filenameWithExt1, PATHINFO_FILENAME);
-            //Get extension
-            $extension1 = $request->file('rep_img')->getClientOriginalExtension();
-            //Filename to store
-            $fileNameToStore1 = $filename1.'_'.time().'.'.$extension1;
-            //Upload Image
-            $path = $request->file('rep_img')->storeAs('public/report_images', $fileNameToStore1);
-        } 
-        else
-        {
-            $fileNameToStore1 = 'no_image.png';
+        if($request->hasFile('rep_img')){
+            // Get filename with the extension
+            $filenameWithExt3 = $request->file('rep_img')->getClientOriginalName();
+            // Get just filename
+            $filename3 = pathinfo($filenameWithExt3, PATHINFO_FILENAME);
+            // Get just ext
+            $extension3 = $request->file('rep_img')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore3 = $filename3.'_'.time().'.'.$extension3;
+            // Upload Image
+            $path = $request->file('rep_img')->storeAs('public/rep_images', $fileNameToStore3);
+        } else {
+            $fileNameToStore3 = 'noimage.jpg';
         }
 
         // Incident Reports
@@ -82,7 +80,7 @@ class ReportController extends Controller
         $inc_reports->rep_time = $request->input('rep_time');
         $inc_reports->rep_address = $request->input('rep_location');
         $inc_reports->rep_status = $request->input('rep_status');
-        $inc_reports->rep_img = $fileNameToStore1;
+        $inc_reports->rep_img = $fileNameToStore3;
         $inc_reports->save();
 
         return redirect('/dash')->with('success', 'Report found');
@@ -108,7 +106,9 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inc_reports = Report::find($rep_id);
+
+        return view('report.edit')->with('inc_reports', $inc_reports);
     }
 
     /**

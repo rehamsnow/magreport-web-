@@ -9,7 +9,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                         <div class="panel-heading">
-                {!! Form::open(['action' => 'NewsAnnController@store', 'method' => 'NEWSANN']) !!}
+                {!! Form::open(['action' => 'NewsAnnController@store', 'method' => 'NEWSANN', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group">
                                 {{Form::label('ann_title', 'Title')}}
                                 {{Form::text('ann_title', '', ['class' => 'form-control'])}}

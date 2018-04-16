@@ -40,7 +40,7 @@
     <title>{{ config('app.name', 'Laravel') }}@yield('title')</title>
 </head>
 
-<body style="background-color:rosybrown">
+<body style="background-color:black">
 <!--<body style="background-image: url('{{ asset('img/bg2.png') }}'); background-repeat: round; background-attachment: fixed;"> -->
     
     <div class="wrapper">
@@ -101,10 +101,18 @@
                                     <p>Dashboard</p>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/newsann">
+                            <li class="dropdown">
+                                <a href="/newsann" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>News & Announcements</p>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/newsann">Show Posts</a>
+                                    </li>
+                                    <li>
+                                        <a href="/newsann/create">Create Post</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="{{ route('logout') }}"

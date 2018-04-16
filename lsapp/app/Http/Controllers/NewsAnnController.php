@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NewsAnn;
+use Illuminate\Support\Facades\Storage;
 //use DB;
 
 class NewsAnnController extends Controller
@@ -54,9 +55,41 @@ class NewsAnnController extends Controller
             'ann_date' => 'required',
             'ann_time' => 'required',
             'ann_location' => 'required',
-            'ann_img1' => 'required',
-            'ann_img2' => 'required',
+            'ann_img1' => 'image|nullable|max:1999',
+            'ann_img2' => 'image|nullable|max:1999',
         ]);
+
+        // Handle File Upload
+
+        if($request->hasFile('ann_img1')){
+            // Get filename with the extension
+            $filenameWithExt1 = $request->file('ann_img1')->getClientOriginalName();
+            // Get just filename
+            $filename1 = pathinfo($filenameWithExt1, PATHINFO_FILENAME);
+            // Get just ext
+            $extension1 = $request->file('ann_img1')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore1 = $filename1.'_'.time().'.'.$extension1;
+            // Upload Image
+            $path = $request->file('ann_img1')->storeAs('public/ann_images', $fileNameToStore1);
+        } else {
+            $fileNameToStore1 = 'noimage.jpg';
+        }
+        
+        if($request->hasFile('ann_img2')){
+            // Get filename with the extension
+            $filenameWithExt2 = $request->file('ann_img2')->getClientOriginalName();
+            // Get just filename
+            $filename2 = pathinfo($filenameWithExt2, PATHINFO_FILENAME);
+            // Get just ext
+            $extension2 = $request->file('ann_img2')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
+            // Upload Image
+            $path = $request->file('ann_img2')->storeAs('public/ann_images', $fileNameToStore2);
+        } else {
+            $fileNameToStore2 = 'noimage.jpg';
+        }
 
         // Create News Announcements
         $news_anns = new NewsAnn;
@@ -65,8 +98,8 @@ class NewsAnnController extends Controller
         $news_anns->ann_date = $request->input('ann_date');
         $news_anns->ann_time = $request->input('ann_time');
         $news_anns->ann_location = $request->input('ann_location');
-        $news_anns->ann_img1 = $request->input('ann_img1');
-        $news_anns->ann_img2 = $request->input('ann_img2');
+        $news_anns->ann_img1 = $fileNameToStore1;
+        $news_anns->ann_img2 = $fileNameToStore2;
         $news_anns->user_id = auth()->user()->id;
         $news_anns->save();
 
@@ -117,10 +150,36 @@ class NewsAnnController extends Controller
             'ann_desc' => 'required',
             'ann_date' => 'required',
             'ann_time' => 'required',
-            'ann_location' => 'required',
-            'ann_img1' => 'required',
-            'ann_img2' => 'required',
+            'ann_location' => 'required'
         ]);
+
+                // Handle File Upload
+
+                if($request->hasFile('ann_img1')){
+                    // Get filename with the extension
+                    $filenameWithExt1 = $request->file('ann_img1')->getClientOriginalName();
+                    // Get just filename
+                    $filename1 = pathinfo($filenameWithExt1, PATHINFO_FILENAME);
+                    // Get just ext
+                    $extension1 = $request->file('ann_img1')->getClientOriginalExtension();
+                    // Filename to store
+                    $fileNameToStore1 = $filename1.'_'.time().'.'.$extension1;
+                    // Upload Image
+                    $path = $request->file('ann_img1')->storeAs('public/ann_images', $fileNameToStore1);
+                } 
+                
+                if($request->hasFile('ann_img2')){
+                    // Get filename with the extension
+                    $filenameWithExt2 = $request->file('ann_img2')->getClientOriginalName();
+                    // Get just filename
+                    $filename2 = pathinfo($filenameWithExt2, PATHINFO_FILENAME);
+                    // Get just ext
+                    $extension2 = $request->file('ann_img2')->getClientOriginalExtension();
+                    // Filename to store
+                    $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
+                    // Upload Image
+                    $path = $request->file('ann_img2')->storeAs('public/ann_images', $fileNameToStore2);
+                }
 
         // Create News Announcements
         $news_anns = new NewsAnn;
@@ -129,8 +188,12 @@ class NewsAnnController extends Controller
         $news_anns->ann_date = $request->input('ann_date');
         $news_anns->ann_time = $request->input('ann_time');
         $news_anns->ann_location = $request->input('ann_location');
-        $news_anns->ann_img1 = $request->input('ann_img1');
-        $news_anns->ann_img2 = $request->input('ann_img2');
+        if($request->hasFile('ann_img1')){
+            $news_anns->ann_img1 = $fileNameToStore1;
+        }
+        if($request->hasFile('ann_img2')){
+            $news_anns->ann_img2 = $fileNameToStore2;
+        }
         $news_anns->user_id = auth()->user()->id;
         $news_anns->save();
 
@@ -152,6 +215,14 @@ class NewsAnnController extends Controller
           //  return redirect('/newsann')->with('error', 'Unauthorized Page');
         //}
 
+        //if($news_anns->ann_img1 != 'noimage.jpg'){
+            //Delete Image
+          //  Storage::delete('public\ann_images/'.$news_anns->ann_img1);
+        //}
+        //if($news_anns->ann_img2 != 'noimage.jpg'){
+            //Delete Image
+          //  Storage::delete('public\ann_images/'.$news_anns->ann_img2);
+        //}
         $news_anns->delete();
         return redirect('/newsann')->with('success', 'Post Deleted');
     }
