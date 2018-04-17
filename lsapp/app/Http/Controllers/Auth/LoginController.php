@@ -25,7 +25,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dash';
+    //protected $redirectTo = '/dash';
+
+    protected function authenticated($request,$user)
+    {
+        if($user->user_type == "Bantay Bayan")
+        {
+            return redirect()->intended(route('dash'));
+        }
+        else
+        {
+            return redirect()->intended(route('dashboard'));
+        }
+    }
 
     /**
      * Create a new controller instance.

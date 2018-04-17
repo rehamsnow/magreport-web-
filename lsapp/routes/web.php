@@ -30,6 +30,6 @@ Route::resource('/newsann', 'NewsAnnController');
 Route::resource('/report', 'ReportController');
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/dash', 'DashController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dash', 'DashController@index')->name('dash');
 Route::get('/home', 'HomeController@index');
