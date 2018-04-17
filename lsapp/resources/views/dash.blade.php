@@ -87,32 +87,32 @@
           </table>
         </br>
           <table>
-              <div class="well well-sm col-md-6 col-sm-6" style="background-color:white">
+              <div class="well well-sm col-md-6 col-sm-6 border" style="background-color:darksalmon">
                   <div class="row">
                       <div class="col-md-6 col-sm-6">
-                      <h6 class="text-center">Peace & Order: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Peace and Order')->count() }}</h6>
+                      <h6 class="text-center"><b>Peace & Order: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Peace and Order')->count() }}</b></h6>
                       </div>
                   </div>
                 </div>
-                <div class="well well-sm col-md-6 col-sm-6" style="background-color:white">
+                <div class="well well-sm col-md-6 col-sm-6" style="background-color:darkseagreen">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                          <h6 class="text-center">Health: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Health')->count() }} </h6>
+                          <h6 class="text-center"><b>Health: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Health')->count() }} </b></h6>
                         </div>
                     </div>
                 </div>
                 <br>
-                <div class="well well-sm col-md-6 col-sm-6" style="background-color:white">
+                <div class="well well-sm col-md-6 col-sm-6" style="background-color:lightblue">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                          <h6 class="text-center">Recreation: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Recreation')->count() }}</h6>
+                          <h6 class="text-center"><b>Recreation: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Recreation')->count() }}</b></h6>
                         </div>
                     </div>
                   </div>
-                  <div class="well well-sm col-md-6 col-sm-6 text-white" style="background-color:white">
+                  <div class="well well-sm col-md-6 col-sm-6 text-white" style="background-color:khaki">
                       <div class="row">
                           <div class="col-md-6 col-sm-6">
-                            <h6 class="text-center">Others: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Others')->count() }}</h6>
+                            <h6 class="text-center"><b>Others: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Others')->count() }}</b></h6>
                           </div>
                       </div>
                   </div>
