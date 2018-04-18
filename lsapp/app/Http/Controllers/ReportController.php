@@ -104,7 +104,7 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($rep_id)
     {
         $inc_reports = Report::find($rep_id);
 
@@ -118,9 +118,19 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $rep_id)
     {
-        //
+        $this->validate($request, [
+            'rep_status' => 'required',
+            ]);
+
+        //Edit Report Status
+        $inc_reports = Report::find($rep_id);
+        $inc_reports->rep_status = $request->input('rep_status');
+        
+        $inc_reports->save();
+
+        return redirect('/dash')->with('success', 'Status Updated');
     }
 
     /**

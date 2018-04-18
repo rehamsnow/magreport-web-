@@ -48,6 +48,7 @@
                   <th>IMAGE</th>
                   <th>NAME</th>
                   <th>STATUS</th>
+                  <th>MANAGE</th>
               </tr>
               @foreach($inc_reports as $inc_reports)
                   <tr>
@@ -67,14 +68,13 @@
                       </td>
                       <!--<td>{{$inc_reports->user->user_fname}} {{$inc_reports->user->user_lname}}</td> -->
                       <td>Reham Snow Camama </td>
+                      <td>{{$inc_reports->rep_status}}</td>
                       <td>
-                            <input id="pending" type="checkbox" name="rep_status" value="Pending" checked="checked" required autofocus>
-                                <label class="form-check-label" for="Pending"> Pending </label> <br>
-                          @if ($inc_reports->rep_status != "resolved")     
-                            <input id="resolved" type="checkbox" name="rep_status" value="Resolved" required autofocus>
-                                <label class="form-check-label" for="Resolved"> Resolved</label> <br>  
-                          @endif  
+                        <a href="/report/{{$inc_reports->rep_id}}/edit" class="btn btn-info">
+                            <i class="fa fa-edit"></i>
+                        </a>
                       </td>
+                    </td>
                   </tr>
               @endforeach        
           <!--</table>
