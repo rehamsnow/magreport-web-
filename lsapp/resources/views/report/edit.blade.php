@@ -17,7 +17,7 @@
                                 <br>
                                 {{Form::hidden('_method','PUT')}}
                                 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-                                <a href="/newsann" class="btn btn-default pull-right" >Go Back</a>
+                                <a href="/dash" class="btn btn-default pull-right" >Go Back</a>
                                 {!! Form::close() !!}
                         </div>
                 </div>
