@@ -54,7 +54,7 @@ class ReportController extends Controller
             'rep_time' => 'required',
             'rep_address' => 'required',
             'rep_img' => 'image|nullable|max:1999',
-            'rep_status' => 'required',
+            // 'rep_status' => 'required',
         ]);
 
         if($request->hasFile('rep_img')){
@@ -79,7 +79,7 @@ class ReportController extends Controller
         $inc_reports->rep_date = $request->input('rep_date');
         $inc_reports->rep_time = $request->input('rep_time');
         $inc_reports->rep_address = $request->input('rep_location');
-        $inc_reports->rep_status = $request->input('rep_status');
+        $inc_reports->rep_status = "Pending";
         $inc_reports->rep_img = $fileNameToStore3;
         $inc_reports->save();
 

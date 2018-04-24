@@ -20,7 +20,7 @@ class CreateIncReportsTable extends Migration
             $table->time('rep_time');
             $table->date('rep_date');
             $table->string('rep_address');
-            $table->string('rep_status');
+            $table->string('rep_status')->default('Pending');
             $table->binary('rep_img');
             $table->timestamps();
         });

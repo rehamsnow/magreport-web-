@@ -1,11 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('header')
+  <h2 class="title">Reset Password</h2>
+@endsection
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <div class="panel-heading"></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">

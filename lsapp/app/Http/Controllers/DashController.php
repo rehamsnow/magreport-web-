@@ -24,7 +24,7 @@ class DashController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $inc_reports = Report::paginate(10);
+        $inc_reports = Report::orderBy('rep_date', 'desc')-> paginate(30);
         return view('dash')->with('inc_reports',$inc_reports);
     }
 }
