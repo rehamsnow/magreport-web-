@@ -7,10 +7,6 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-9 col-md-offset-0">
-            <div class="panel panel-default">
 
                 <div class="panel-body">
                     @if(count($news_anns) > 0)
@@ -57,9 +53,5 @@
                     @else
                         <p>You have no posts</p>    
                     @endif
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection

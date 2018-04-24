@@ -93,7 +93,7 @@
                       <h6 class="text-center"><b>Peace & Order: {{$inc_reports = DB::table('inc_reports')->where('inc_desc', '=', 'Peace and Order')->count() }}</b></h6>
                       </div>
                   </div>
-                </div>
+              </div>
                 <div class="well well-sm col-md-6 col-sm-6" style="background-color:darkseagreen">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
